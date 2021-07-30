@@ -1,0 +1,21 @@
+type Task @auth(
+    query: { rule: """
+        query($USER: String!) {
+            queryTask {
+                user(filter: { username: { eq: $USER } }) {
+                    __typename
+                }
+            }
+        }"""}), {
+    id: ID!
+    title: String! @search(by: [fulltext])
+    completed: Boolean! @search
+    user: User!
+}
+
+type User {
+  username: String! @id @search(by: [hash])
+  name: String @search(by: [exact])
+  tasks: [Task] @hasInverse(field: user)
+}
+# Dgraph.Authorization {"VerificationKey":"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuTEyRgrIl1r1WRlgQlky\nBhgZ+9NhZRvhrzguZTXhsUSpu7x7KXRuhr4nCtXucmC2usbJCJMdcZGAlnFkioxO\n8+oPrePBE9wayY9WmGnU3c3TBiv+s3940obTwuG7hi8HsTSX78vtcZhHwIk4Tdwd\nfq5073uhV33nYXybML50Vu1JrzK4ILOcFi3DIxGXOhK35CV4FOt+XvLpOn5SIYqr\nH1UPfy3Qc9um9lwIqtgB7LpZqF82+pxhefTndf/iamG90aXLZvnkblRHEzaEJ/Bt\n+e511+YMohXs0Zk525WGRyUwtCbhL/e8Mj27N2ycF3lVPqrFUZkm0VVxz+IATZWP\ncwIDAQAB\n-----END PUBLIC KEY-----","Header":"X-Auth-Token","Namespace":"https://dgraph.io/jwt/claims","Algo":"RS256","Audience":["pcL6M4UWXEAPDVXlRv1dixB2MqpzwG4N"]}
