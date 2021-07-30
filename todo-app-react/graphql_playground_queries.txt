@@ -1,0 +1,32 @@
+# To get schema from Dgraph
+query {
+  getGQLSchema {
+    schema
+  }
+}
+
+#For Mutation
+## Add a new Task
+mutation addTask($task: [AddTaskInput!]!) {
+  addTask(input: $task) {
+    task {
+      title
+      completed
+      user {
+        username
+      }
+    }
+  }
+}
+## Add task Query Variables
+{"task": [{"title": "15th Task", "completed": false, "user": {"username": "test@gmail.com"}}]}
+
+## Deletion of Task
+mutation deleteTask($taskID: [ID!]) { 
+  deleteTask(filter: {id: $taskID}) {
+    msg
+  }
+}
+## Deletion Query Variables
+{"taskID":  ["0xc351"]}
+
