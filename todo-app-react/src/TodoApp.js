@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useQuery, useMutation } from "@apollo/react-hooks";
+//added subscription hooks in react-hooks
+import { useQuery, useSubscription, useMutation } from "@apollo/react-hooks";
 
 import defs from './defs'
 import history from './history';
@@ -54,7 +55,10 @@ const TodoApp = () => {
     }
   }
 
-  const { loading, error, data } = useQuery(GET_TODOS);
+  // for Subscription added the below line
+  const { loading, error, data } = useSubscription(GET_TODOS);
+  // for Query ucomment the below line
+  //const { loading, error, data } = useQuery(GET_TODOS);
   const getData = () => {
     if (loading) {
       return null;
