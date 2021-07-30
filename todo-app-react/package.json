@@ -3,19 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.21",
+    "@apollo/link-ws": "^2.0.0-beta.3",
+    "@apollo/react-hooks": "^4.0.0",
     "@auth0/auth0-spa-js": "^1.8.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-cache-inmemory": "^1.6.6",
     "apollo-cache-persist": "^0.1.1",
-    "apollo-client": "^2.6.8",
+    "apollo-client": "^2.6.10",
     "apollo-link-context": "^1.0.20",
-    "apollo-link-http": "^1.5.16",
-    "classnames": "^2.2.6",
+    "apollo-link-http": "^1.5.17",
+    "classnames": "^2.3.1",
+    "cors": "^2.8.5",
     "dgraph-js-http": "^20.07.0",
-    "graphql": "^14.6.0",
-    "graphql-tag": "^2.10.3",
+    "graphql": "^14.7.0",
+    "graphql-tag": "^2.12.5",
     "history": "^4.10.1",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^1.5.2",
@@ -25,7 +29,10 @@
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
-    "todomvc-app-css": "^2.3.0"
+    "subscriptions-transport-ws": "^0.9.19",
+    "todomvc-app-css": "^2.3.0",
+    "tsutils": "^3.21.0",
+    "typescript": "^4.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,5 +54,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "<div style=\"padding-top: 5px; padding-bottom: 10px;\">   <h1 align=\"center\">ToDo React App</h1>   <h2 align=\"center\">     A One-Click Deployable App with<br />     <a href=\"https://dgraph.io/slash-graphql\" target=\"_blank\">       <img src=\"https://dgraph.io/assets/images/slashgraphql-logo.svg\" alt=\"Slash GraphQL\" />     </a><br />     A fully-managed GraphQL backend service   </h2> </div>",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
